@@ -11,7 +11,7 @@ Please feel free to use this code, and contribute to the project here.
 The next features for this browser extension are:
 
 - [ ] Firefox compatible extension
-- [ ] Test and fix with Brave and Arch
+- [ ] Test and fix with Brave and Arc
 - [ ] Safari extension
 - [ ] Microsoft Edge extension
 - [ ] Configure a folder to store all the bookmarks (to be setup by user in the extension display)
