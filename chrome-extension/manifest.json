@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Save Tabs as JSON",
+  "name": "Tab URL Saver",
   "description": "A browser action with a popup dump of all bookmarks, including search, add, edit and delete.",
   "version": "1.0",
   "permissions": [
@@ -22,7 +22,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["bookmarks.html"],
+      "resources": ["saved_urls.html", "saved_urls.js"],
       "matches": ["<all_urls>"]
     }
   ]
