@@ -1,0 +1,2 @@
+access-key= I9XZE2BRE2VSR72QAZT3
+secret-key= 7AgXkmp4YwqQBUpmPna6j0HylhQZV2tYdyWcJy5c
