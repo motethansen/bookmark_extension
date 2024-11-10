@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from "../../images/logo.svg";
+import logo from "../../images/icon48.png";
 import "./NavbarComponent.css";
-import RestoreSessionComponent from "../Pages/RestoreSessionComponent";
-import SaveTabsComponent from "../Pages/SaveTabsComponent";
+import RestoreSessionComponent from "../Pages/RestoreSession/RestoreSessionComponent";
+import SaveTabsComponent from "../Pages/SaveTabs/SaveTabsComponent";
+import AboutComponent from "../Pages/About/AboutComponent";
 const NavbarComponent = () => {
   const [activeTab, setActiveTab] = useState("home");
 
   return (
     <Container className="navbar">
       {/* Navbar */}
-      <Navbar bg="light" expand="sm">
+      <Navbar collapseOnSelect bg="light" expand="xs">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand onClick={() => setActiveTab("home")} href="#home">
             <img src={logo} className="App-logo" alt="logo" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -39,6 +40,11 @@ const NavbarComponent = () => {
 
       {/* Content */}
       <Container className="mt-4">
+        {activeTab === "home" && (
+          <p>
+            <AboutComponent />
+          </p>
+        )}
         {activeTab === "save" && (
           <p>
             <SaveTabsComponent />

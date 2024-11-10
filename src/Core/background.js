@@ -51,16 +51,14 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
       if (urlList.length > 5) {
         console.log("Too many tabs stored. Limiting to last 3");
         const slicedArray = urlList.slice(3, urlList.length);
-        chrome.windows.create({ url: slicedArray }).then((response) => {
-          console.log(response.sessionId);
-          sendResponse({ success: true, sessionId: response.sessionId });
-        });
+        await chrome.windows.create({ url: slicedArray });
+        console.log(response.sessionId);
+        sendResponse({ success: true, sessionId: response.sessionId });
       } else {
         // Open a new window with all the URLs as separate tabs
-        chrome.windows.create({ url: urlList }).then((response) => {
-          console.log(response.sessionId);
-          sendResponse({ success: true, sessionId: response.sessionId });
-        });
+        await chrome.windows.create({ url: urlList });
+        console.log(response.sessionId);
+        sendResponse({ success: true, sessionId: response.sessionId });
       }
       return true; // Keeps the message channel open for sendResponse
     } catch (error) {

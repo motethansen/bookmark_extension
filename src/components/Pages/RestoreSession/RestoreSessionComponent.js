@@ -18,7 +18,6 @@ const RestoreSessionComponent = () => {
           chrome.runtime
             .sendMessage({ action: "restore_session", data: jsonData })
             .then((response) => {
-              console.log(response);
               if (chrome.runtime.lastError) {
                 console.error(chrome.runtime.lastError.message);
               } else if (response && !response.success) {
@@ -38,13 +37,14 @@ const RestoreSessionComponent = () => {
     }
   }
 
-  const restore_session_function = (event) => {
+  const restore_session_function = async (event) => {
     event.preventDefault();
-    handleFileSelect(event);
+    await handleFileSelect(event);
     event.stopPropogation();
   };
 
   const valueonChange = (e) => {
+    e.preventDefault();
     let files = e.target.files;
     setFile(files[0]);
     console.log(files[0]);
@@ -52,9 +52,10 @@ const RestoreSessionComponent = () => {
 
   return (
     <>
+      <h1>Restore Session from JSON</h1>
       <Form>
         <Form.Group controlId="formFile" className="mb-3">
-          <Form.Label>Default file input example</Form.Label>
+          <Form.Label>Insert File to Restore</Form.Label>
           <Form.Control type="file" onChange={(e) => valueonChange(e)} />
         </Form.Group>
         <Button
