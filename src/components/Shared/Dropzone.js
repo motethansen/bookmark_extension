@@ -55,7 +55,7 @@ function FileUploadParent() {
 
   return (
     <div>
-      <h2>File Upload with State in Parent</h2>
+      <h2>Restore Session from JSON</h2>
       <FilePondComponent files={files} onFileUpdate={handleFileUpdate} />
       <Button
         onClick={restoreSessionClick}

@@ -17,12 +17,12 @@ const save_tabs_function = async (event) => {
 
 const SaveTabsComponent = () => {
   return (
-    <>
-      <h1>Restore Session from JSON</h1>
+    <div className="savetabscomponent">
+      <h1>Save tabs into JSON</h1>
       <Button onClick={(e) => save_tabs_function(e)} id="saveTabsButton">
         Save Tabs as JSON
       </Button>
-    </>
+    </div>
   );
 };
 

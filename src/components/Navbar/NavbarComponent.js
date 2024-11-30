@@ -33,13 +33,6 @@ const NavbarComponent = () => {
               >
                 Restore
               </Nav.Link>
-              <Nav.Link
-                href="#profile"
-                active={activeTab === "restore2"}
-                onClick={() => setActiveTab("restore2")}
-              >
-                Restorev2
-              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -58,11 +51,6 @@ const NavbarComponent = () => {
           </>
         )}
         {activeTab === "restore" && (
-          <>
-            <RestoreSessionComponent />
-          </>
-        )}
-        {activeTab === "restore2" && (
           <>
             <RestoreSessionComponent />
           </>
