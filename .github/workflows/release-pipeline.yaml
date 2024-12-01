@@ -100,10 +100,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: react-build
+      # To Debug folder structure.
+      - name: Display structure of downloaded files
+        run: ls -R
 
-      - name: Zip Build Folder
-        run: |
-          zip -r react-build.zip build
+      # - name: Zip Build Folder
+      #   run: |
+      #     zip -r react-build.zip build
 
       - name: Create Release
         uses: actions/create-release@v1
@@ -123,3 +126,7 @@ jobs:
           asset_path: react-app.zip
           asset_name: react-app.zip
           asset_content_type: application/zip
+      - name: Delete Artifact to reduce space usage.
+        uses: geekyeggo/delete-artifact@v5
+        with:
+          name: react-build
