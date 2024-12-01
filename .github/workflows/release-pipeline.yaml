@@ -103,7 +103,7 @@ jobs:
 
       - name: Zip Build Folder
         run: |
-          zip -r react-app.zip build
+          zip -r react-build.zip build
 
       - name: Create Release
         uses: actions/create-release@v1

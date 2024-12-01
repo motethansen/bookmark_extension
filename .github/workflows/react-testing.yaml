@@ -2,8 +2,8 @@ name: React Tests
 
 on:
   push:
-    branches:
-      - "**"
+    branches-ignore:
+      - main
 
 jobs:
   test:
