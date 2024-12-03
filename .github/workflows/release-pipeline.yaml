@@ -106,8 +106,7 @@ jobs:
 
       - name: Zip Build Folder
         run: |
-          zip -r react-build.zip build
-
+          zip -r react-build.zip . -i build
       - name: Create Release
         uses: actions/create-release@v1
         id: create_release
