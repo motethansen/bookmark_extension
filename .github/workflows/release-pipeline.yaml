@@ -104,9 +104,9 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
 
-      # - name: Zip Build Folder
-      #   run: |
-      #     zip -r react-build.zip build
+      - name: Zip Build Folder
+        run: |
+          zip -r react-build.zip build
 
       - name: Create Release
         uses: actions/create-release@v1
