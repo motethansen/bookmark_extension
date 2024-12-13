@@ -20,6 +20,8 @@
   "scripts": {
     "start": "webpack serve --config webpack/webpack.dev.js",
     "build": "webpack --config webpack/webpack.prod.js",
+    "build-chrome": "webpack --config webpack/webpack.prod.js --env browser=chrome",
+    "build-firefox": "webpack --config webpack/webpack.prod.js --env browser=firefox",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

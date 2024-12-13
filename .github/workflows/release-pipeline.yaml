@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - 05-firefox-support
   pull_request:
     branches:
       - main
@@ -73,15 +74,33 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-
 
-      - name: Build React App
+      - name: Build Default React App
         run: npm run build
 
+      - name: Build React App for Firefox
+        run: npm run build-firefox
+
+      - name: Build React App for Firefox
+        run: npm run build-chrome
+
+      # Upload Build artifact for default config.
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: react-build
-          path: build
-
+          name: bookmark_extension_v2_default
+          path: build/default
+      # Upload Build artifact for Chrome browsers.
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bookmark_extension_v2_chrome
+          path: build/chrome
+      # Upload Build artifact for Firefox browsers.
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bookmark_extension_v2_firefox
+          path: build/firefox
   release:
     name: Create GitHub Release
     runs-on: ubuntu-latest
@@ -89,19 +108,18 @@ jobs:
     permissions:
       contents: write
       packages: read
-
     steps:
       - name: Get Build Artifact
         uses: actions/download-artifact@v4
         with:
-          name: react-build
+          name: bookmark_extension_v2_chrome
       # To Debug folder structure.
       - name: Display structure of downloaded files
         run: ls -R
       # Zip up the files.
       - name: Zip Build Folder
         run: |
-          zip -r react-build.zip . -i build
+          zip -r bookmark_extension_v2_chrome.zip . -i build
       # Create Github Release
       - name: Create Release
         uses: actions/create-release@v1

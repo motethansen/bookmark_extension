@@ -8,11 +8,6 @@ module.exports = {
     main: "./src/index.js",
     background: "./src/Core/background.js", // New entry point for background script
   },
-  output: {
-    filename: "[name].js",
-    path: path.resolve(__dirname, "../build"),
-    clean: true,
-  },
   resolve: {
     extensions: [".js", ".jsx"],
   },
